@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mundo pokemon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        Vue - Pokedex
+    </header>
+    <main id="app" class="main-view">
+        <article class="pokemons-list">
+            
+             <!-- Inicio Reemplazo pokemon-card" -->
+             <div class="pokemon-card" v-for="pokemon in pokemons" :key="pokemon.id">
+                <div class="background-wrapper">
+                    <div v-for="type in pokemon.types" :key="type" :style="{'background-color': typeColor[type]}"></div>
+                </div>
+                <span class="remove-pokemon"><i class="material-icons">close</i></span>
+                <div class="image-wrapper">
+                    <img :src="pokemon.image" :alt="pokemon.name" class="pokemon-image">
+                </div>
+                <div class="pokemon-title">
+                    {{ pokemon.name }}
+                </div>
+            </div>
+            <!-- Fin Reemplazo pokemon-card -->
+        </article>
+    </main>
+
+
+
+    <script src="https://unpkg.com/vue@2.6.8/dist/vue.min.js"></script>
+    <!-- Inicio agrego archivo pokemon -->
+    <script src="pokemons.js"></script>
+    <!-- Fin agrego archivo pokemon -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>
